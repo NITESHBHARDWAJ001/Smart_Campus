@@ -1,0 +1,102 @@
+.attendance-container {
+  margin-bottom: 2rem;
+}
+
+.attendance-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.attendance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.empty-state {
+  border-radius: 8px;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: #6c757d;
+  opacity: 0.5;
+}
+
+.course-selector {
+  max-width: 500px;
+}
+
+/* Status badges */
+.badge {
+  font-weight: normal;
+  padding: 0.35em 0.65em;
+}
+
+/* Status buttons */
+.status-btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.status-btn-group .btn {
+  min-width: 80px;
+}
+
+/* Attendance summary styles */
+.summary-stats .card {
+  transition: all 0.3s ease;
+}
+
+.summary-stats .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.summary-stats h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+/* Progress bar styles */
+.progress {
+  height: 8px;
+  background-color: #f1f1f1;
+}
+
+.attendance-percentage {
+  font-weight: bold;
+}
+
+/* Student attendance list */
+.attendance-list .present {
+  background-color: rgba(25, 135, 84, 0.05);
+}
+
+.attendance-list .absent {
+  background-color: rgba(220, 53, 69, 0.05);
+}
+
+.attendance-list .late {
+  background-color: rgba(255, 193, 7, 0.05);
+}
+
+.attendance-list .excused {
+  background-color: rgba(13, 202, 240, 0.05);
+}
+
+/* Mobile adjustments */
+@media (max-width: 767.98px) {
+  .status-btn-group {
+    flex-direction: column;
+  }
+  
+  .status-btn-group .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .table-responsive {
+    font-size: 0.9rem;
+  }
+}

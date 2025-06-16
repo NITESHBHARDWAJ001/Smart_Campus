@@ -1,0 +1,67 @@
+.materials-container {
+  margin-bottom: 2rem;
+}
+
+.material-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.material-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.material-card .card-title {
+  font-size: 1.1rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state {
+  border-radius: 8px;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: #6c757d;
+  opacity: 0.5;
+}
+
+.btn-group .btn {
+  margin-left: 5px;
+}
+
+.course-selector {
+  max-width: 500px;
+}
+
+.content-preview {
+  max-height: 150px;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+/* Material type badges */
+.badge {
+  font-weight: normal;
+  padding: 0.35em 0.65em;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767.98px) {
+  .materials-list .col {
+    margin-bottom: 1rem;
+  }
+  
+  .btn-group {
+    flex-direction: column;
+  }
+  
+  .btn-group .btn {
+    margin-left: 0;
+    margin-top: 5px;
+  }
+}

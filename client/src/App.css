@@ -1,0 +1,140 @@
+/* Global Styles */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+/* Custom Card Styles */
+.card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Dashboard Card Styles */
+.dashboard-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-card .card-body {
+  flex: 1;
+}
+
+.dashboard-card .icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(13, 110, 253, 0.1);
+  margin-bottom: 15px;
+}
+
+.dashboard-card .card-icon {
+  font-size: 1.8rem;
+  color: #0d6efd;
+}
+
+/* Form Styles */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  color: #0d6efd;
+  opacity: 1;
+}
+
+.btn {
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+}
+
+/* Custom Background */
+.bg-light-gray {
+  background-color: #f8f9fa;
+}
+
+/* Alert Styles */
+.alert {
+  border-radius: 10px;
+}
+
+/* Profile Card Styles */
+.profile-header {
+  background: linear-gradient(135deg, #0d6efd, #0099ff);
+  color: white;
+  border-radius: 10px 10px 0 0;
+  padding: 25px;
+}
+
+.profile-avatar {
+  width: 120px;
+  height: 120px;
+  border: 5px solid white;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+/* Custom Table Styles */
+.table-custom {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.table-custom thead {
+  background-color: #f1f5f9;
+}
+
+/* Custom Badge Styles */
+.badge-custom {
+  padding: 8px 12px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Auth Pages */
+.auth-container {
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+.auth-form {
+  padding: 30px;
+}
+
+.auth-divider {
+  margin: 30px 0;
+  display: flex;
+  align-items: center;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.auth-divider span {
+  padding: 0 10px;
+  color: #6c757d;
+}

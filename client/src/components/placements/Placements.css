@@ -1,0 +1,136 @@
+.placement-container {
+  margin-bottom: 2rem;
+}
+
+.placement-card {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.placement-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.placement-card.inactive {
+  opacity: 0.7;
+}
+
+.placement-card .card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.company-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.company-logo {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-right: 1rem;
+}
+
+.company-name {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+.placement-details {
+  margin-bottom: 1.5rem;
+}
+
+.placement-details .detail-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.placement-details .detail-icon {
+  min-width: 20px;
+  margin-right: 0.75rem;
+  color: #6c757d;
+}
+
+.deadline {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.deadline.urgent {
+  color: #dc3545;
+}
+
+.application-status {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.application-card {
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+  border-left: 5px solid #007bff;
+}
+
+.application-card.selected {
+  border-left-color: #28a745;
+}
+
+.application-card.rejected {
+  border-left-color: #dc3545;
+}
+
+.application-card.under-review {
+  border-left-color: #ffc107;
+}
+
+.application-actions {
+  margin-top: 1rem;
+}
+
+.filter-buttons {
+  margin-bottom: 1.5rem;
+}
+
+.placement-form-divider {
+  margin: 1.5rem 0;
+  border-top: 1px solid #e9ecef;
+}
+
+.cover-letter-box {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  margin: 1rem 0;
+  white-space: pre-wrap;
+}
+
+@media (max-width: 767.98px) {
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btn-group .btn {
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .company-info {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .company-logo {
+    margin-bottom: 0.5rem;
+  }
+}

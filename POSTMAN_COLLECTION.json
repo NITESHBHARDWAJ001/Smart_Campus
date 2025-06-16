@@ -1,0 +1,695 @@
+{
+	"info": {
+		"_postman_id": "f8c54d9a-6b2c-4f5a-b1e7-2d8970b91c2c",
+		"name": "Smart Campus Portal API",
+		"description": "A collection of API endpoints for the Smart Campus Portal application.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rollNo\": \"nitesh\",\n    \"password\": \"nitesh\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						},
+						"description": "Login with admin credentials"
+					},
+					"response": [
+						{
+							"name": "Successful Login Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"rollNo\": \"nitesh\",\n    \"password\": \"nitesh\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxNWE1YzZlOWMxYjJkM2U0ZjVhNmI3YyIsIm5hbWUiOiJBZG1pbiBVc2VyIiwicm9sbE5vIjoibml0ZXNoIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNjMzMDc0NjAwLCJleHAiOjE2MzU2NjY2MDB9.DWGRiZnshIThjKuTxw8iq0rSLwJL4IqEITkDB0joqxg\",\n    \"user\": {\n        \"id\": \"615a5c6e9c1b2d3e4f5a6b7c\",\n        \"name\": \"Admin User\",\n        \"rollNo\": \"nitesh\",\n        \"role\": \"admin\"\n    }\n}"
+						},
+						{
+							"name": "Failed Login Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"rollNo\": \"nitesh\",\n    \"password\": \"wrong_password\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/users/login",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"error\": \"Invalid credentials\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Current User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/users/me",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"me"
+							]
+						},
+						"description": "Get the currently authenticated user's profile"
+					},
+					"response": [
+						{
+							"name": "Successful User Profile Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"_id\": \"615a5c6e9c1b2d3e4f5a6b7c\",\n    \"name\": \"Admin User\",\n    \"rollNo\": \"nitesh\",\n    \"role\": \"admin\",\n    \"createdAt\": \"2023-10-01T10:30:00.000Z\"\n}"
+						},
+						{
+							"name": "Unauthorized Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer invalid_token"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/users/me",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"users",
+										"me"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"error\": \"Token is not valid\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register User (Dev Only)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"New Test User\",\n    \"rollNo\": \"testuser123\",\n    \"password\": \"password123\",\n    \"role\": \"student\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/users/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						},
+						"description": "Register a new user (for development/testing only)"
+					},
+					"response": []
+				}
+			],
+			"description": "Endpoints for user authentication and profile management"
+		},
+		{
+			"name": "Notices",
+			"item": [
+				{
+					"name": "Get All Notices",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/notices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"notices"
+							]
+						},
+						"description": "Get all notices (accessible to all users)"
+					},
+					"response": [
+						{
+							"name": "Successful Notices Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/notices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notices"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "[\n    {\n        \"_id\": \"615c8d2f9c1b2d3e4f5a7c8d\",\n        \"title\": \"Campus Maintenance Notice\",\n        \"description\": \"The campus will be closed for maintenance on Saturday.\",\n        \"eventDate\": \"2023-10-15T00:00:00.000Z\",\n        \"createdBy\": \"Admin\",\n        \"createdAt\": \"2023-10-05T08:30:00.000Z\"\n    },\n    {\n        \"_id\": \"615c8e4f9c1b2d3e4f5a7c8e\",\n        \"title\": \"New Library Hours\",\n        \"description\": \"The library will now be open until 10 PM on weekdays.\",\n        \"createdBy\": \"Admin\",\n        \"createdAt\": \"2023-10-04T14:00:00.000Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Notice",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Important Announcement\",\n    \"description\": \"All classes will be online next week due to renovations.\",\n    \"eventDate\": \"2023-10-20T00:00:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/notices",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"notices"
+							]
+						},
+						"description": "Create a new notice (Admin only)"
+					},
+					"response": [
+						{
+							"name": "Successful Creation Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Important Announcement\",\n    \"description\": \"All classes will be online next week due to renovations.\",\n    \"eventDate\": \"2023-10-20T00:00:00.000Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/notices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notices"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"_id\": \"615d9f609c1b2d3e4f5a7c8f\",\n    \"title\": \"Important Announcement\",\n    \"description\": \"All classes will be online next week due to renovations.\",\n    \"eventDate\": \"2023-10-20T00:00:00.000Z\",\n    \"createdBy\": \"Admin\",\n    \"createdAt\": \"2023-10-06T09:45:00.000Z\"\n}"
+						},
+						{
+							"name": "Forbidden Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{nonAdminToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Important Announcement\",\n    \"description\": \"All classes will be online next week due to renovations.\",\n    \"eventDate\": \"2023-10-20T00:00:00.000Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/notices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notices"
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"error\": \"Access denied. Admin only.\"\n}"
+						},
+						{
+							"name": "Validation Error Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"\",\n    \"description\": \"\",\n    \"eventDate\": \"2023-10-20T00:00:00.000Z\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/notices",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notices"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"error\": \"Title and description are required\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Notice By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/notices/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"notices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "615c8d2f9c1b2d3e4f5a7c8d",
+									"description": "Notice ID"
+								}
+							]
+						},
+						"description": "Get a specific notice by ID"
+					},
+					"response": [
+						{
+							"name": "Successful Notice Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/notices/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "615c8d2f9c1b2d3e4f5a7c8d",
+											"description": "Notice ID"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"_id\": \"615c8d2f9c1b2d3e4f5a7c8d\",\n    \"title\": \"Campus Maintenance Notice\",\n    \"description\": \"The campus will be closed for maintenance on Saturday.\",\n    \"eventDate\": \"2023-10-15T00:00:00.000Z\",\n    \"createdBy\": \"Admin\",\n    \"createdAt\": \"2023-10-05T08:30:00.000Z\"\n}"
+						},
+						{
+							"name": "Notice Not Found Response",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/notices/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "invalid_id",
+											"description": "Notice ID"
+										}
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"error\": \"Notice not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Notice",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Announcement\",\n    \"description\": \"All classes will be online for two weeks due to extended renovations.\",\n    \"eventDate\": \"2023-10-27T00:00:00.000Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/notices/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"notices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "615d9f609c1b2d3e4f5a7c8f",
+									"description": "Notice ID to update"
+								}
+							]
+						},
+						"description": "Update an existing notice (Admin only)"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Notice",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/api/notices/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"notices",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "615d9f609c1b2d3e4f5a7c8f",
+									"description": "Notice ID to delete"
+								}
+							]
+						},
+						"description": "Delete a notice (Admin only)"
+					},
+					"response": [
+						{
+							"name": "Successful Delete Response",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/notices/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"notices",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "615d9f609c1b2d3e4f5a7c8f",
+											"description": "Notice ID to delete"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								}
+							],
+							"body": "{\n    \"message\": \"Notice removed\"\n}"
+						}
+					]
+				}
+			],
+			"description": "Endpoints for notice/event management"
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:5000",
+			"type": "string"
+		},
+		{
+			"key": "token",
+			"value": "YOUR_JWT_TOKEN",
+			"type": "string"
+		},
+		{
+			"key": "nonAdminToken",
+			"value": "YOUR_NON_ADMIN_JWT_TOKEN",
+			"type": "string"
+		}
+	]
+}

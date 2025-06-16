@@ -1,0 +1,91 @@
+/* Course component styles */
+.course-card {
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.teacher-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.course-action-btn {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.modal-header .modal-title {
+  display: flex;
+  align-items: center;
+}
+
+.icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  background-color: rgba(13, 110, 253, 0.1);
+  border-radius: 50%;
+}
+
+.card-icon {
+  font-size: 24px;
+  color: #0d6efd;
+}
+
+.student-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+}
+
+.empty-state-icon {
+  font-size: 3rem;
+  color: #adb5bd;
+  margin-bottom: 1rem;
+}
+
+/* Roll number input with search button */
+.roll-number-input {
+  display: flex;
+}
+
+.roll-number-input input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.roll-number-input button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .course-action-btn {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn-group-sm {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

@@ -1,0 +1,133 @@
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 90px 0 0;
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 767.98px) {
+  .sidebar {
+    top: 11.5rem;
+    padding: 0;
+  }
+}
+
+.navbar {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.nav-link-hover:hover {
+  background-color: #f8f9fa;
+}
+
+.card-icon {
+  font-size: 2rem;
+  color: #007bff;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: rgba(0, 123, 255, 0.1);
+  margin: 0 auto;
+}
+
+.dashboard-card {
+  transition: all 0.3s ease;
+  border: none;
+  min-height: 200px;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dashboard-card .card-title {
+  margin-top: 1rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.dashboard-card .btn {
+  margin-top: 1rem;
+}
+
+.stat-card {
+  border-left: 4px solid #007bff;
+  border-radius: 0.25rem;
+}
+
+.stat-card.attendance {
+  border-left-color: #28a745;
+}
+
+.stat-card.courses {
+  border-left-color: #17a2b8;
+}
+
+.stat-card.materials {
+  border-left-color: #ffc107;
+}
+
+.stat-card .stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.stat-card .stat-label {
+  color: #6c757d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.progress-card {
+  margin-bottom: 1.5rem;
+}
+
+.progress-card .progress {
+  height: 10px;
+  border-radius: 5px;
+}
+
+.progress-card .title-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.progress-card .title {
+  font-weight: 600;
+  margin-bottom: 0;
+}
+
+.profile-details {
+  margin-bottom: 2rem;
+}
+
+.profile-details .detail-item {
+  margin-bottom: 1rem;
+}
+
+.profile-details .detail-label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.profile-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #f8f9fa;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
